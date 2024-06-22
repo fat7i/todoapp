@@ -1,0 +1,94 @@
+{
+	"info": {
+		"_postman_id": "8a8c9308-d3aa-46c8-822f-33c73c448928",
+		"name": "Todo API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "13244784"
+	},
+	"item": [
+		{
+			"name": "Create a new todo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"todo title\",\n    \"status\": \"completed\",\n    \"description\": \"Amet cupidatat veniam tempor proident et lorem reprehenderit\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/todos"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve a single todo by its ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/todos/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve a list of all todos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/todos?page=1&limit=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"todos"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update an existing todo by its ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"new todo title\",\n    \"status\": \"completed\",\n    \"description\": \"Amet cupidatat veniam tempor proident et lorem reprehenderit\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/todos/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a todo by its ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost:8080/api/todos/1"
+			},
+			"response": []
+		}
+	]
+}
