@@ -1,0 +1,154 @@
+openapi: 3.0.0
+info:
+  title: Todo API
+  description: API documentation for the Todo API
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+paths:
+  /api/todos:
+    get:
+      summary: Retrieve a list of all todos
+      parameters:
+        - name: page
+          in: query
+          required: false
+          schema:
+            type: integer
+            example: 1
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            example: 10
+      responses:
+        '200':
+          description: A list of todos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    title:
+                      type: string
+                    status:
+                      type: string
+                    description:
+                      type: string
+    post:
+      summary: Create a new todo
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                status:
+                  type: string
+                description:
+                  type: string
+              example:
+                title: todo title
+                status: completed
+                description: Amet cupidatat veniam tempor proident et lorem reprehenderit
+      responses:
+        '201':
+          description: The created todo
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  status:
+                    type: string
+                  description:
+                    type: string
+  /api/todos/{id}:
+    get:
+      summary: Retrieve a single todo by its ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A single todo
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  status:
+                    type: string
+                  description:
+                    type: string
+    put:
+      summary: Update an existing todo by its ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                status:
+                  type: string
+                description:
+                  type: string
+              example:
+                title: new todo title
+                status: completed
+                description: Amet cupidatat veniam tempor proident et lorem reprehenderit
+      responses:
+        '200':
+          description: The updated todo
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  status:
+                    type: string
+                  description:
+                    type: string
+    delete:
+      summary: Delete a todo by its ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: The todo was deleted

@@ -34,7 +34,6 @@ class CreateTodoController extends AbstractApiController
 
             return $this->response($todoDto, Response::HTTP_CREATED);
         } catch (\Exception $e) {
-//            dd($e);
             return GeneralErrorResource::response($e);
         }
     }

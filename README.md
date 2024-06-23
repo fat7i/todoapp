@@ -1,6 +1,6 @@
 # Todo API
 
-# Project Setup Guide
+## Project Setup Guide
 
 ### 1. Clone the Project
 Clone the project repository to your local machine.
@@ -23,7 +23,8 @@ http://localhost:8080/api/todos?page=1&limit=10
 
 ---
 ### API Documentation:
-Postman collection can be found [here](Todo%20API.postman_collection.json)
+1. The API documentation can be found [here](workspace/config/api/todo_api.yaml)
+2. Postman collection can be found [here](Todo%20API.postman_collection.json)
 
 ---
 ### Running Tests
